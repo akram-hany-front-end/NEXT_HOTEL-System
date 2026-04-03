@@ -1,26 +1,138 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light (backgrounds) */
+  --background-light: #fdf2f8;
+  --pink-soft: #fce7f3;
+
+  /* Text / accents */
+  --paragraph: #f472b6;
+
+  /* Dark (hover / headings) */
+  --hover: #db2777;
+  --header: #be185d;
+
+  /* Neutral */
+  --text: #4b5563;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dashboard {
+  display: flex;
+  min-height: 100vh;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.sidebar {
+  width: 220px;
+  background: var(--header);
+  color: #000000;
+  padding: 20px;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  color: var(--pink-soft);
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  color: #000000;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background: var(--background-light);
+}
+
+/*RoomCard*/
+.room-single-card {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 5px 5px 5px;
+  width: 300px;
+  background-color: #fce7f3;
+  border-radius: 4px;
+ }
+.img-room-card {
+  width: 300px;
+  border-radius: 4px;
+  height: 200px;
+}
+.price-room-card {
+  font-size: 22px;
+  font-weight: 700;
+  color: #be185d;
+}
+.info-room-card {
+  font-weight: 500;
+  font-size: 14px;
+  text-align: start;
+  color: #f472b6;
+  line-height: 10px;
+}
+.id-room-card {
+  color: var(--header);
+  font-size: 16px;
+  line-height: 10px;
+  margin: 5px 0px;
+  text-align: start;
+}
+.state {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 16px;
+}
+.star-card{
+  color: var(--header);
+}
+.card-button {
+  width: 110px;
+  height: 30px;
+  border-radius: 4px;
+  border: none;
+  color: #ffffff;
+  transition: 0.5s ease;
+  background-color: #f9a8d4;
+  cursor: pointer;
+  align-self: self-end;
+}
+.card-button:hover {
+  background-color: var(--hover);
+}
+
+/*rooms-page*/
+.rooms-grid{
+ display: grid;
+padding: 50px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+
+  max-height: 900px;
+  overflow-y: auto;
+
+  scroll-behavior: smooth;
+}
+.rooms-grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.rooms-grid::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.rooms-grid::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
