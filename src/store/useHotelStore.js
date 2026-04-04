@@ -282,6 +282,7 @@ export const useHotelStore = create((set) => ({
   ],
 
   // الحجوزات
+  
   bookings: [],
 
   // دالة إضافة حجز
@@ -295,4 +296,20 @@ export const useHotelStore = create((set) => ({
           : room
       ),
     })),
+
+    cancelBooking: (id) =>
+  set((state) => {
+    const booking = state.bookings.find((b) => b.id === id);
+
+    return {
+      bookings: state.bookings.filter((b) => b.id !== id),
+
+      rooms: state.rooms.map((room) =>
+        room.id === booking.roomId
+          ? { ...room, status: "available" }
+          : room
+      ),
+    };
+  }),
+  
 }));
