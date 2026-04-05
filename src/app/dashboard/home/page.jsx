@@ -19,29 +19,30 @@ export default function Home() {
     checkIn: "",
   });
 
-const handleSubmit = () => {
-  const room = rooms.find((r) => r.id == form.roomId);
+  const handleSubmit = () => {
+    const room = rooms.find((r) => r.id == form.roomId);
 
-  const checkInDate = new Date(form.checkIn);
+    const checkInDate = new Date(form.checkIn);
 
-  const checkOutDate = new Date(checkInDate);
-  checkOutDate.setDate(checkOutDate.getDate() + Number(form.days));
+    const checkOutDate = new Date(checkInDate);
+    checkOutDate.setDate(checkOutDate.getDate() + Number(form.days));
 
-  addBooking({
-    id: Date.now(),
-    ClintID: form.ClintID,
-    clientName: form.clientName,
-    phone: form.phoneNumber,
-    roomId: room.id,
-    roomNumber: room.number,
-    price: room.price,
-    days: Number(form.days),
-    checkIn: form.checkIn,
-    checkOut: checkOutDate.toISOString().split("T")[0],
-  });
+    addBooking({
+      id: Date.now(),
+      ClintID: form.ClintID,
+      clientName: form.clientName,
+      phone: form.phoneNumber,
+      roomId: room.id,
+      roomNumber: room.number,
+      price: room.price,
+      days: Number(form.days),
+      phoneNumber: form.phoneNumber,
+      checkIn: form.checkIn,
+      checkOut: checkOutDate.toISOString().split("T")[0],
+    });
 
-  setShowPopup(false);
-};
+    setShowPopup(false);
+  };
   return (
     <div>
       <h1>Hotel System</h1>

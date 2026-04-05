@@ -6,25 +6,25 @@ import { useHotelStore } from "@/store/useHotelStore";
 const BookedCard = ({ booking }) => {
   const cancelBooking = useHotelStore((state) => state.cancelBooking);
 
-const [timeLeft, setTimeLeft] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(0);
 
-useEffect(() => {
-  const interval = setInterval(() => {
-    const now = new Date().getTime();
-    const checkout = new Date(booking.checkOut).getTime();
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const checkout = new Date(booking.checkOut).getTime();
 
-    const diff = Math.floor((checkout - now) / 1000);
+      const diff = Math.floor((checkout - now) / 1000);
 
-    if (diff <= 0) {
-      setTimeLeft(0);
-      clearInterval(interval);
-    } else {
-      setTimeLeft(diff);
-    }
-  }, 1000);
+      if (diff <= 0) {
+        setTimeLeft(0);
+        clearInterval(interval);
+      } else {
+        setTimeLeft(diff);
+      }
+    }, 1000);
 
-  return () => clearInterval(interval);
-}, [booking.checkOut]); 
+    return () => clearInterval(interval);
+  }, [booking.checkOut]);
 
   const formatTime = () => {
     const days = Math.floor(timeLeft / (60 * 60 * 24));
@@ -43,6 +43,8 @@ National ID: ${booking.ClintID}
 Client: ${booking.clientName}
 Room: ${booking.roomNumber}
 Days: ${booking.days}
+Check-In: ${booking.checkIn}
+Check-Out: ${booking.checkOut}
 Total: $${total}
     `);
   };
