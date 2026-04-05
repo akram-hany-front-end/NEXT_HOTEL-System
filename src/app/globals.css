@@ -136,3 +136,216 @@ padding: 50px;
 .rooms-grid::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+
+/* CARD */
+.booked-card-container {
+  position: relative;
+  z-index: 2;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  border: 2px solid var(--pink-soft);
+  transition: 0.3s ease;
+  overflow: hidden;
+  width: 300px;
+  height: 360px;
+}
+
+.booked-card-container:hover {
+  transform: translateY(-5px) scale(1.00);
+  box-shadow: 0 15px 35px rgba(219, 39, 119, 0.2);
+}
+
+/* glow effect */
+.booked-card-container::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: linear-gradient(120deg, transparent, rgba(244,114,182,0.2), transparent);
+  top: -50%;
+  left: -50%;
+  transform: rotate(25deg);
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.booked-card-container:hover::before {
+  opacity: 1;
+  animation: shine 1s ease;
+}
+
+@keyframes shine {
+  from { transform: translateX(-100%) rotate(25deg); }
+  to { transform: translateX(100%) rotate(25deg); }
+}
+
+/*  TEXT  */
+.clint-name-booked {
+  color: var(--header);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.clint-id-booked,
+.clint-phone-booked {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.room-num-booked {
+  display: inline-block;
+  background: var(--pink-soft);
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 8px 0;
+  color: var(--header);
+  font-weight: bold;
+}
+
+.countdown-booked {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--hover);
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.price-booked {
+  color: var(--paragraph);
+  font-weight: bold;
+}
+
+.checkin-date-booked,
+.checkout-date-booked {
+  color: var(--text);
+  font-size: 13px;
+}
+
+/*  BUTTONS  */
+.buttons-card-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+ 
+}
+
+.buttons-card-container button {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+/* checkout */
+.checkin-booked {
+  background: #22c55e;
+  color: white;
+}
+
+.checkin-booked:hover {
+  background: #16a34a;
+}
+
+/* cancel */
+.checkout-booked {
+  background: #ef4444;
+  color: white;
+}
+
+.checkout-booked:hover {
+  background: #dc2626;
+}
+
+/* edit */
+.edit-booked {
+  background: var(--paragraph);
+  color: white;
+}
+
+.edit-booked:hover {
+  background: var(--hover);
+}
+
+/*  POPUP  */
+.popup-booked {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.popup-content-booked {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  width: 320px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: scaleUp 0.3s ease;
+}
+
+.heading-edit {
+  text-align: center;
+  color: var(--header);
+  margin-bottom: 15px;
+}
+
+/* inputs */
+.popup-content-booked input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--pink-soft);
+  outline: none;
+  transition: 0.2s;
+}
+
+.popup-content-booked input:focus {
+  border-color: var(--paragraph);
+  box-shadow: 0 0 0 2px rgba(244,114,182,0.2);
+}
+
+/* popup buttons */
+.edit-save-btn-booked {
+  width: 100%;
+  background: var(--hover);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.edit-cancel-btn-booked {
+  width: 100%;
+  background: #e5e7eb;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/*  ANIMATIONS  */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
