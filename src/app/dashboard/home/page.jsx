@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useHotelStore } from "@/store/useHotelStore";
- import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Home() {
   const [showPopup, setShowPopup] = useState(false);
@@ -19,20 +19,21 @@ export default function Home() {
   });
 
   const handleSubmit = () => {
-    const room = rooms.find((r) => r.id == form.roomId);
+  const room = rooms.find((r) => r.id == form.roomId);
 
-    addBooking({
-      id: Date.now(),
-      ClintID: form.ClintID,
-      clientName: form.clientName,
-      roomId: room.id,
-      phoneNumber: room.phoneNumber,
-      roomNumber: room.number,
-      days: form.days,
-    });
+  addBooking({
+    id: Date.now(),
+    ClintID: form.ClintID,
+    clientName: form.clientName,
+    phoneNumber: form.phoneNumber, 
+    roomId: room.id,
+    roomNumber: room.number,
+    price: room.price, 
+    days: Number(form.days), 
+  });
 
-    setShowPopup(false);
-  };
+  setShowPopup(false);
+};
 
   return (
     <div>

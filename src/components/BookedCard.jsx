@@ -8,7 +8,7 @@ const BookedCard = ({ booking }) => {
 
   const [timeLeft, setTimeLeft] = useState(booking.days * 24 * 60 * 60);
 
-  // ⏳ Countdown
+ 
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeLeft((prev) => {
@@ -20,7 +20,7 @@ const BookedCard = ({ booking }) => {
     return () => clearInterval(interval);
   }, []);
 
-  // تحويل الوقت
+ 
   const formatTime = () => {
     const days = Math.floor(timeLeft / (60 * 60 * 24));
     const hours = Math.floor((timeLeft % (60 * 60 * 24)) / (60 * 60));
@@ -29,12 +29,13 @@ const BookedCard = ({ booking }) => {
     return `${days}d ${hours}h ${minutes}m`;
   };
 
-  // 💰 Checkout (فاتورة)
+ 
   const handleCheckout = () => {
     const total = booking.days * booking.price;
 
     alert(`
 Your Bill:
+National ID: ${booking.ClintID}
 Client: ${booking.clientName}
 Room: ${booking.roomNumber}
 Days: ${booking.days}
@@ -46,13 +47,13 @@ Total: $${total}
     <div className="booked-card-container">
 
       <h4>{booking.clientName}</h4>
-      <h3>ID: {booking.id}</h3>
+      <h3>ID: {booking.ClintID}</h3>
 
       <span>Room: {booking.roomNumber}</span>
 
       <span>⏳ {formatTime()}</span>
 
-      <h3>Phone: {booking.phone || "N/A"}</h3>
+      <h3>Phone: {booking.phoneNumber || "There is no Phone Number"}</h3>
 
       <p>Total: ${booking.days * (booking.price || 0)}</p>
 
