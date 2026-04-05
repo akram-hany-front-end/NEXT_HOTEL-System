@@ -45,6 +45,7 @@ Room: ${booking.roomNumber}
 Days: ${booking.days}
 Check-In: ${booking.checkIn}
 Check-Out: ${booking.checkOut}
+Phone: ${booking.phoneNumber}
 Total: $${total}
     `);
   };
