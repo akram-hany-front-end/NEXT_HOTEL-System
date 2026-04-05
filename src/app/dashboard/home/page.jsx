@@ -16,54 +16,56 @@ export default function Home() {
     phoneNumber: "",
     roomId: "",
     days: "",
+    checkIn: "",
   });
 
-  const handleSubmit = () => {
+const handleSubmit = () => {
   const room = rooms.find((r) => r.id == form.roomId);
+
+  const checkInDate = new Date(form.checkIn);
+
+  const checkOutDate = new Date(checkInDate);
+  checkOutDate.setDate(checkOutDate.getDate() + Number(form.days));
 
   addBooking({
     id: Date.now(),
     ClintID: form.ClintID,
     clientName: form.clientName,
-    phoneNumber: form.phoneNumber, 
+    phone: form.phoneNumber,
     roomId: room.id,
     roomNumber: room.number,
-    price: room.price, 
-    days: Number(form.days), 
+    price: room.price,
+    days: Number(form.days),
+    checkIn: form.checkIn,
+    checkOut: checkOutDate.toISOString().split("T")[0],
   });
 
   setShowPopup(false);
 };
-
   return (
     <div>
       <h1>Hotel System</h1>
 
       <button onClick={() => setShowPopup(true)}>
-         <FontAwesomeIcon icon={faPlusCircle} /> New Booking
+        <FontAwesomeIcon icon={faPlusCircle} /> New Booking
       </button>
 
       {/* Popup */}
       {showPopup && (
         <div className="popup">
-
           <div className="popup-content">
             <h2>New Booking</h2>
 
             <input
               placeholder="Name"
-              onChange={(e) =>
-                setForm({ ...form, clientName: e.target.value })
-              }
+              onChange={(e) => setForm({ ...form, clientName: e.target.value })}
             />
-             <input
+            <input
               type="number"
               placeholder="ID"
-              onChange={(e) =>
-                setForm({ ...form, ClintID: e.target.value })
-              }
+              onChange={(e) => setForm({ ...form, ClintID: e.target.value })}
             />
-             <input
+            <input
               type="number"
               placeholder="Phone"
               onChange={(e) =>
@@ -71,11 +73,8 @@ export default function Home() {
               }
             />
 
-
             <select
-              onChange={(e) =>
-                setForm({ ...form, roomId: e.target.value })
-              }
+              onChange={(e) => setForm({ ...form, roomId: e.target.value })}
             >
               <option>Room number</option>
 
@@ -91,18 +90,18 @@ export default function Home() {
             <input
               type="number"
               placeholder="Days"
-              onChange={(e) =>
-                setForm({ ...form, days: e.target.value })
-              }
+              onChange={(e) => setForm({ ...form, days: e.target.value })}
+            />
+
+            <input
+              type="date"
+              onChange={(e) => setForm({ ...form, checkIn: e.target.value })}
             />
 
             <button onClick={handleSubmit}>Confirm</button>
 
-            <button onClick={() => setShowPopup(false)}>
-              Cancel
-            </button>
+            <button onClick={() => setShowPopup(false)}>Cancel</button>
           </div>
-
         </div>
       )}
     </div>
