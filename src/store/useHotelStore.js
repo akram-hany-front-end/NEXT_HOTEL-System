@@ -311,5 +311,13 @@ export const useHotelStore = create((set) => ({
       ),
     };
   }),
+
+  updateBooking: (updatedBooking) =>
+  set((state) => ({
+    bookings: state.bookings.map((b) =>
+      b.id === updatedBooking.id ? updatedBooking : b
+    ),
+  })),
+  
   
 }));
