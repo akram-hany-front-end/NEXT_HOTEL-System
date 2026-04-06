@@ -314,7 +314,7 @@
 
 /* inputs */
 .popup-content-booked input {
-  width: 100%;
+  width: 295px;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 10px;
@@ -330,27 +330,25 @@
 
 /* popup buttons */
 .edit-save-btn-booked {
-    width: 100%;
+  width: 100%;
   padding: 10px;
   border-radius: 12px;
   border: none;
   font-weight: bold;
   margin-top: 5px;
   cursor: pointer;
-    background: linear-gradient(135deg, var(--paragraph), var(--hover));
+  background: linear-gradient(135deg, var(--paragraph), var(--hover));
 
-   color: white;
+  color: white;
   transition: 0.3s;
 }
 .edit-save-btn-booked:hover,
-.edit-cancel-btn-booked:hover{
+.edit-cancel-btn-booked:hover {
   transform: scale(1.05);
 }
-   
- 
 
 .edit-cancel-btn-booked {
-      width: 100%;
+  width: 100%;
   padding: 10px;
   border-radius: 12px;
   border: none;
@@ -359,7 +357,7 @@
   cursor: pointer;
   background: linear-gradient(230deg, rgb(255, 108, 108), #ff5050);
 
-   color: white;
+  color: white;
   transition: 0.3s;
 }
 
@@ -504,7 +502,7 @@
   outline: none;
   transition: 0.2s;
 }
- 
+
 .custom-dropdown {
   position: relative;
   width: 100%;
@@ -519,7 +517,7 @@
   backdrop-filter: blur(12px);
 
   border: 1px solid #ffdef1;
-font-size: 14px;
+  font-size: 14px;
   cursor: pointer;
   font-weight: 500;
   color: #111827;
@@ -594,7 +592,7 @@ font-size: 14px;
 }
 
 .popup-content button:last-of-type:hover {
-   transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 /* ANIMATIONS */
