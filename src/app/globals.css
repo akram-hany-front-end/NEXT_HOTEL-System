@@ -16,33 +16,47 @@
 
 .dashboard {
   display: flex;
-  min-height: 760px;
-}
+ }
 
 .sidebar {
   width: 220px;
-  background: var(--header);
+  background: #be185d80;
   color: #000000;
+
   padding: 20px;
 }
 
 .sidebar h2 {
-  margin-bottom: 20px;
+text-align: center;
+margin-top: 20;
+margin-bottom: 50px;
+color: var(--header);
+font-size: 36px;
+font-weight: 700;
+font-family: "Montserrat" , sans-serif;
 }
 
 .sidebar ul {
   list-style: none;
   padding: 0;
+    width: 100%;
+
 }
 
 .sidebar li {
-  margin-bottom: 10px;
-}
+margin-bottom: 30px;
+text-align: center;
+font-size: 20px;
+
+  width: 220px;
+
+ }
 
 .sidebar a {
-  color: var(--pink-soft);
+   color: var(--pink-soft);
+    width: 220px;
   text-decoration: none;
-}
+  transition: 0.3s ease-in-out;}
 
 .sidebar a:hover {
   color: #000000;
@@ -52,6 +66,13 @@
   flex: 1;
   padding: 20px;
   background: var(--background-light);
+}
+.active{
+  font-weight: 700;
+  width: 220;
+  font-size: 30px;
+  padding: 5px 10px;
+  border-radius: 8px;
 }
 
 /*RoomCard*/
@@ -113,15 +134,22 @@
 }
 
 /*rooms-page*/
+.rooms-container{
+    height: 840px;
+    overflow: hidden;
+
+ }
+ .rooms-container h1{
+  color: var(--header);
+ }
 .rooms-grid {
   display: grid;
-  padding: 50px;
+  padding: 30px;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
+  height: 780px;
 
-  max-height: 900px;
-  overflow-y: auto;
-
+   overflow-y: auto;
   scroll-behavior: smooth;
 }
 .rooms-grid::-webkit-scrollbar {
@@ -384,8 +412,8 @@
 
 /*HOME*/
 .home-container {
-  min-height: 780px;
-  padding: 30px;
+  min-height: 840px;
+  padding: 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -396,10 +424,9 @@
   font-size: 32px;
   font-weight: bold;
   color: var(--header);
-  margin-bottom: 20px;
-  text-align: center;
-  letter-spacing: 1px;
-}
+  margin-bottom: 50px;
+   letter-spacing: 1px;
+ }
 
 /*  BUTTON  */
 .home-new-book-btn {
@@ -424,11 +451,24 @@
 }
 
 /*  BOOKINGS GRID  */
+.inhouse-container{
+   height: 840px;
+    overflow: hidden;
+}
+.inhouse-container h1{
+  color: var(--header);
+}
+.inhouse-container p{
+  color: var(--paragraph);
+}
 .home-in-house-customers {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+}
+.home-in-house-customers p{
+  color: var(--paragraph);
 }
 
 /*  POPUP  */

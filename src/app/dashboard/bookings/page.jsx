@@ -4,11 +4,11 @@ import BookedCard from "@/components/BookedCard";
 import { useHotelStore } from "@/store/useHotelStore";
 
 export default function Page() {
-  // ✅ هنا بقى جبنا bookings صح
+  
   const bookings = useHotelStore((state) => state.bookings);
 
   return (
-    <div>
+    <div className="inhouse-container">
       <h1>In-House</h1>
 
       {bookings.length === 0 ? (
